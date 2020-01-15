@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+
+	<Resource 
+		name="jdbc/pool" 
+		auth="Container"
+		type="javax.sql.DataSource"
+		driverClassName="oracle.jdbc.driver.OracleDriver" 
+		loginTimeout="10"
+		maxwait="5000" 
+		username="ghkvud" 
+		password="ghkvud"
+		url="jdbc:oracle:thin:@localhost:1521:orcl" />
+
+</Context>
