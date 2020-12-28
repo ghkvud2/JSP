@@ -32,8 +32,10 @@ public class BoardInfoAction implements Action {
 			throws ServletException, IOException {
 		
 		int num = Integer.parseInt(request.getParameter("num"));
+		int currentPage = Integer.parseInt(request.getParameter("currentPage"));
 		BoardBean boardBean = BoardServiceImpl.getInstance().getOneBoard(num);
 		request.setAttribute("boardBean", boardBean);
+		request.setAttribute("currentPage", currentPage);
 		return "move_info.do";
 	}
 

@@ -43,7 +43,7 @@
 				<td align="center" colspan="2" size="55">
 				<input type="submit" value="확인"> &nbsp; &nbsp; 
 				<input type="reset" value="지우기"> &nbsp; &nbsp; 
-				<input type="button" onclick="location.href='list.do?currentPage=1'" value="전체 글보기"></td>
+				<input type="button" onclick="location.href='/list.do?currentPage=1'" value="전체 글보기"></td>
 			</tr>
 		</table>
 	</form>

@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2 align="center">회원 가입</h2>
+	<h2 align="center">에러 생성 페이지</h2>
 	<form action="MemberJoinProc.do" method="post">
 		<table align="center" width="500" border="1">
 			<tr height="50">

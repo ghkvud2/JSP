@@ -44,8 +44,8 @@
 			<td align="center" colspan="4"><input type="button"
 				value="답변 쓰기"
 				onclick="location.href='move_reply.do?num=${boardBean.num}&ref=${boardBean.ref}&re_step=${boardBean.re_step}&re_level=${boardBean.re_level}'">&nbsp;
-				&nbsp; <input type="button" value="수정하기" onclick="location.href='move_update.do?num=${boardBean.num }'">&nbsp;
-				&nbsp; <input type="button" value="삭제하기" onclick="location.href='move_delete.do?num=${boardBean.num }'">&nbsp;
+				&nbsp; <input type="button" value="수정하기" onclick="location.href='move_update.do?num=${boardBean.num }&currentPage=${currentPage}'">&nbsp;
+				&nbsp; <input type="button" value="삭제하기" onclick="location.href='move_delete.do?num=${boardBean.num }&currentPage=${currentPage}'">&nbsp;
 				&nbsp; <input type="button" value="목록보기" onclick="location.href='list.do?currentPage=1'"></td>
 		</tr>
 	</table>

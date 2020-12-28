@@ -32,6 +32,7 @@ public class BoardUpdateAction implements Action {
 			throws ServletException, IOException {
 
 		int num = Integer.parseInt(request.getParameter("num"));
+		int currentPage = Integer.parseInt(request.getParameter("currentPage"));
 		String inputPassword = request.getParameter("password");
 		String dbPassword = request.getParameter("dbpassword");
 
@@ -42,7 +43,7 @@ public class BoardUpdateAction implements Action {
 
 		if (dbPassword.equals(inputPassword)) {
 			BoardServiceImpl.getInstance().updateBoard(boardBean);
-			return "list.do";
+			return "list.do?currentPage="+currentPage;
 		} else {
 			return "move_error.do";
 		}

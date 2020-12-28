@@ -39,7 +39,7 @@
 				<c:forEach var="i" begin="1" end="${boardBean.re_step }">
 					&nbsp;&nbsp;&nbsp;
 				</c:forEach> 
-				<a href="info.do?num=${boardBean.num}" style="text-decoration: none">${boardBean.subject}</td>
+				<a href="info.do?num=${boardBean.num}&currentPage=${pageNavigator.currentPage}" style="text-decoration: none">${boardBean.subject}</td>
 				<td width="150" align="center">${boardBean.writer}</td>
 				<td width="150" align="center">${boardBean.reg_date}</td>
 				<td width="100" align="center">${boardBean.readcount}</td>

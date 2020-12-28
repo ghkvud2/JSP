@@ -30,15 +30,14 @@ public class BoardListAction implements Action {
 	}
 
 	@Override
-	public String action(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	public String action(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		int currentPage = Integer.parseInt(request.getParameter("currentPage"));
+		String currentPageParameter = request.getParameter("currentPage");
+		int currentPage = Integer.parseInt(currentPageParameter == null ? "1" : currentPageParameter);
 		PageNavigator pageNavigator = BoardServiceImpl.getInstance().getPageNavigator(currentPage);
 		int startRow = pageNavigator.getStartRow();
 		int endRow = pageNavigator.getEndRow();
-		List<BoardBean> list = BoardServiceImpl.getInstance().getAllBoard(startRow,endRow);
-		
+		List<BoardBean> list = BoardServiceImpl.getInstance().getAllBoard(startRow, endRow);
 		request.setAttribute("list", list);
 		request.setAttribute("pageNavigator", pageNavigator);
 		return "move_list.do";

@@ -13,7 +13,7 @@
 	<form action="update.do" method="post">
 	<input type="hidden" name="dbpassword" value="${boardBean.password }">
 	<input type="hidden" name="num" value="${boardBean.num }">
-		<input type="hidden" name="num" value="${boardBean.num }">
+	<input type="hidden" name="currentPage" value="${currentPage}">
 		<table align="center" width="600" border="1" bordercolor="gray">
 
 			<tr height="40">

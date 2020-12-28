@@ -15,25 +15,24 @@ import com.board.util.MovePage;
 public class BoardController extends HttpServlet {
 
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doAction(request, response);
 	}
 
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		doAction(request, response);
 	}
 
-	protected void doAction(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String path = "";
 		String root = request.getContextPath();
 		String uri = request.getRequestURI();
 		String act = uri.substring(root.length());
+		System.out.println("root : " + root + "\turi : " + uri + "\tact : " + act);
+		String currentPage = (request.getParameter("currentPage") == null) ? "1" : request.getParameter("currentPage");
 
 		if ("/list.do".equals(act)) {
 			path = BoardActionFactory.getBoardListAction().action(request, response);
@@ -75,18 +74,18 @@ public class BoardController extends HttpServlet {
 		} else if ("/reply.do".equals(act)) {
 			path = BoardActionFactory.getBoardReplyAction().action(request, response);
 			MovePage.forward(path, request, response);
-			
+
 		} else if ("/move_reply.do".equals(act)) {
-			path = "BoardReply.jsp";
+			path = "BoardReply.jsp?currentPage=" + currentPage;
 			MovePage.forward(path, request, response);
-			
+
 		} else if ("/update.do".equals(act)) {
 			path = BoardActionFactory.getBoardUpdateAction().action(request, response);
 			MovePage.forward(path, request, response);
-			
+
 		} else if ("/move_update.do".equals(act)) {
 			BoardActionFactory.getBoardInfoAction().action(request, response);
-			path = "BoardUpdate.jsp";
+			path = "BoardUpdate.jsp?currentPage=" + currentPage;
 			MovePage.forward(path, request, response);
 		}
 

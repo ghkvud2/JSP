@@ -27,7 +27,10 @@ public class BoardDAO {
 			DataSource dataSource = (DataSource) envCtx.lookup("jdbc/pool");
 			conn = dataSource.getConnection();
 
-		} catch (NamingException | SQLException e) {
+		} catch (NamingException e) {
+			e.printStackTrace();
+			
+		}catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
@@ -180,7 +183,7 @@ public class BoardDAO {
 	public List<BoardBean> getAllBoard(int startRow, int endRow) {
 		
 		getConnection();
-		List<BoardBean> list = new ArrayList<>();
+		List<BoardBean> list = new ArrayList<BoardBean>();
 		
 		try {
 			String sql = "select B.* " + 
